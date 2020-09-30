@@ -1,0 +1,11 @@
+extends layout
+
+block content
+	main
+	h1 Create New Post
+		form(action="POST" url='/posts')
+			label(for="title") Title:
+			input(id='title' type="text" name='title')
+			label(for="blogpost") Write your post
+			textarea(id='blogpost' name="blogpost", cols="30", rows="10")
+			input(type="submit", value="Create Post")

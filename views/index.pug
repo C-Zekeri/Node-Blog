@@ -1,0 +1,25 @@
+extends layout
+
+block content
+  header
+    div(class='intro-heading')
+      h1 Hi, I'm Tolu!
+      h2 Welcome to my blog
+    div(class='intro-content')
+      p I am a freelance writer and personal branding coach. Here, I talk about faith, lifestyle and whatever I find interesting at the moment.
+        br #[a(href="/posts") Check out my posts], and if you like them, feel free to #[a(href="#subscribe") subscribe] to my newsletter.
+    a(class='btn-cta' href="/posts") Read Posts
+  main
+    div(class='contact')
+      h2 Want to leave me a message?
+      p I'd love to hear from you.
+      form(method='POST' action='/success')
+        label(for="name") Name: 
+        input(type="text" name='message' id='name')
+        label(for="email") Email address: 
+        input(type="email" name='email' id='email')
+        label(for="message") Message: 
+        textarea(name="message", cols="30", rows="10" id='message')
+        input(type="submit", value="Send")
+    include includes/_subscribe.pug
+       
