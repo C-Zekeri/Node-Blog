@@ -1,8 +1,30 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
 body {
-  padding: 50px;
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
 }
 
 a {
   color: #00B7FF;
+}
+
+/*POSTS LIST PAGE*/
+.post-summary__main a {
+  font-weight: 700;
+  font-size: large;
+  text-decoration: none;
+}
+
+.post.summary__footer {
+  display: flex;
+  justify-content: space-between;
+}
+
+.overflow {
+  overflow: hidden;
+  text-overflow: ellipsis;
 }

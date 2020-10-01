@@ -1,0 +1,18 @@
+extends layout
+
+block content
+    main
+        h1= title
+        each post in posts_list
+            .post-summary
+                .post-summary__main
+                    a(href= post.url) #{post.title}
+                    .overflow #{post.post}
+                .post-summary__footer
+                    p= post.date_published
+                    a(href=post.url class='btn btn__info') Read More
+        else 
+            p No posts yet! Check back later.
+        
+        include includes/_subscribe.pug
+    

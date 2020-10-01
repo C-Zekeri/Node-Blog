@@ -1,7 +1,7 @@
 div(class='newsletter')
     p Subscribe to my newsletter
-    form(action="/success" method='POST')
+    form(action="/subscribe" method='POST')
         label(for="email")
-        input(id='email' type="email", name="email" placeholder='example@gmail.com')
+        input(id='email' type="email", name="email" placeholder='example@gmail.com' required='true')
         input(type="submit", value="Subscribe")
 

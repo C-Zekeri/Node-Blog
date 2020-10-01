@@ -2,9 +2,11 @@ extends layout
 
 block content
   main
-    h1= Post.title
-    div(class='post-body')= Post.post
-    div(class='post-comments')
+    article(class='post-body')
+      h1= post.title
+      p.date= post.date_published
+      .body= post.body
+    section(class='post-comments')
       h2 Comments
       .new-comment
         p Comment on this post 
@@ -12,13 +14,16 @@ block content
           label(for="name") Name:
           input(id='name' type="text" name='name')
           label(for="comment") Name:
-          textarea#(id='comment' name="comment", cols="30", rows="10")
+          textarea(id='comment' name="comment", cols="30", rows="10")
           input(type="submit", value="Post Comment")
       .old-comments
-      each comment in comments
-        .old-comments__comment
-          p.comment-author #[em comment.author]
-          p.comment-body= comment.comment
-          p.comment-date= comment.date_published
+        each comment in comments
+          .old-comments__comment
+            p.comment-author= comment.author
+            p.comment-body= comment.comment
+            p.comment-date= comment.date_added
+        else
+          p No Comments.
+
     include includes/_subscribe.pug
 
