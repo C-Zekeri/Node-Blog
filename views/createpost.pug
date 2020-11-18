@@ -3,7 +3,7 @@ extends layout
 block content
 	main
 	h1 Create New Post
-	form(method="POST")
+	form(action="/newpost" method="POST")
 		label(for="title") Title:
 		input(id='title' type="text" name='title' required)
 		label(for="blogpost") Write your post

@@ -5,7 +5,7 @@ const mongoose = require('mongoose');
 
 //get success page
 exports.success_get = (req, res, next) => {
-    const submissionType = req.params.submission;
+    const submissionType = req.query.submission;
     (err) => {
         if (err) { return next(err); }
     }
@@ -57,15 +57,15 @@ exports.create_post_post = (req, res, next) => {
 
     //get and store data
     const newPost = new Post(
+        { _id: new mongoose.Types.ObjectId },
         { title: req.body.title },
         { post: req.body.blogpost }
     )
-    console.log(newPost._id)
     newPost.save((err) => {
         if (err) { return next(err); }
+        res.redirect('/posts');
     });
-
-    res.redirect(newPost.url);
+    console.log(newPost.url);
 }
 
 //post create comment form
@@ -91,17 +91,18 @@ exports.contact_post = (req, res, next) => {
     //sanitize and handle errors
 
     //get and store data
+    console.log(req.body);
     const message = new Message(
         { name: req.body.name },
         { email: req.body.email },
         { message: req.body.messsage }
     )
-    //    .then(
+
     message.save((err) => {
         if (err) { return next(err); }
         res.redirect('/success?submission=contact');
     })
-    //    )
+
 }
 
 //post email subscription form, then get success page
